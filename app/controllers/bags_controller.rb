@@ -10,14 +10,14 @@ class BagsController < ApplicationController
   def create
     @bag = Bag.create(bag_params)
     if @bag.save
-      redirect_to bag_path
+      redirect_to bags_path
     else
       render 'new'
     end
   end
 
   def show
-
+    @bag = Bag.find(params[:id])
   end
 
   def edit
@@ -29,7 +29,10 @@ class BagsController < ApplicationController
   end
 
   def destroy
-
+    @bag = Bag.find(params[:id])
+    @bag.destroy
+    flash[:notice] = 'Bag deleted successfully'
+    redirect_to '/bags'
   end
 
   private

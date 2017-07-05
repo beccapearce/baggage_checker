@@ -22,7 +22,7 @@ feature 'sign up' do
       fill_in 'user[password]', with: "RobinRockz"
       fill_in 'user[confirm_password]', with: "RobinRockz"
       click_button "Submit"
-      expect(page).to have_content("Fired up and ready to go!")
+      expect(page).to have_content("You have created a new account!")
     end
   end
 end

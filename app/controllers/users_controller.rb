@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       redirect_to bags_path
+      flash[:notice] = 'You have created a new account!'
     else
       render 'new'
     end
