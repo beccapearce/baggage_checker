@@ -11,6 +11,6 @@ def add_bag
   visit '/bags/new'
   fill_in 'bag[name]', with: "Piglet"
   fill_in 'bag[number]', with: 1
-  fill_in 'bag[description]', with: "purple"
+  fill_in 'bag[description]', with: "Small pink bag on wheels"
   click_button "Submit"
 end

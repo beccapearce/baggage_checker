@@ -26,5 +26,26 @@ feature 'add a bag' do
       expect(page).to have_content("Delete Piglet")
       expect(current_path).to eq '/bags'
     end
+    it "should show details of a bag when clicked" do
+      add_bag
+      click_link "Piglet"
+      expect(page).to have_content ("Small pink bag on wheels")
+    end
+    it "should be able to edit a bag" do
+      add_bag
+      click_link "Edit Piglet"
+      fill_in 'bag[name]', with: "Tigger"
+      click_button "Update Bag"
+      expect(page).to have_content("Tigger")
+      expect(page).to have_content("Edit Tigger")
+      expect(page).to have_content("Delete Tigger")
+      expect(current_path).to eq '/bags'
+    end
+    it "should be able to delete a bag" do
+      add_bag
+      click_link "Delete Piglet"
+      expect(page).not_to have_content("Piglet")
+    end
+
   end
 end

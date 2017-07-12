@@ -15,7 +15,7 @@ feature 'sign up' do
       expect(page).to have_text 'Password'
       expect(page).to have_text 'Confirm Password'
     end
-    it "should not see 'sign out' link" do
+    xit "should not see 'sign out' link" do
       visit('/')
       expect(page).not_to have_link('Sign out')
     end
@@ -29,6 +29,10 @@ feature 'sign up' do
       click_button "Submit"
       expect(page).to have_content("You have created a new account!")
       expect(current_path).to eq '/bags'
+    end
+    xit "signed in user should see 'sign out' link" do
+      visit('/')
+      expect(page).to have_link('Sign out')
     end
   end
 end

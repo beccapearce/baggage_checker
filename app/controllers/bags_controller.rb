@@ -1,4 +1,7 @@
 class BagsController < ApplicationController
+
+  # before_action :authenticate_user!
+
   def index
     @bags = Bag.all
   end
@@ -21,11 +24,13 @@ class BagsController < ApplicationController
   end
 
   def edit
-
+    @bag = Bag.find(params[:id])
   end
 
   def update
-
+    @bag = Bag.find(params[:id])
+    @bag.update(bag_params)
+    redirect_to '/bags'
   end
 
   def destroy
@@ -38,6 +43,6 @@ class BagsController < ApplicationController
   private
 
   def bag_params
-    params.require(:bag).permit(:name, :number)
+    params.require(:bag).permit(:name, :number, :description)
   end
 end
