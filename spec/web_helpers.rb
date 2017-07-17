@@ -1,6 +1,6 @@
-def sign_in
+def sign_up
   visit '/users/new'
-  fill_in 'user[name]', with: "Winnie-the-Pooh"
+  fill_in 'user[name]', with: "winnie-the-pooh"
   fill_in 'user[group]', with: "100"
   fill_in 'user[password]', with: "100acres"
   fill_in 'user[confirm_password]', with: "100acres"
