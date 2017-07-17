@@ -34,5 +34,12 @@ feature 'sign up' do
       visit('/')
       expect(page).to have_link('Sign out')
     end
+    it "user can sign in" do
+      visit('/')
+      click_link ('Sign in')
+      expect(page).to have_content('Name')
+      expect(page).to have_content('Group')
+      expect(page).to have_content('Password')
+    end
   end
 end
