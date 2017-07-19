@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  def index
+
+  end
+
   def new
 
   end
@@ -11,6 +15,16 @@ class SessionsController < ApplicationController
       redirect_to bags_path
     else
       flash.now[:notice] = "Invalid username/password combination."
+      render 'new'
+    end
+  end
+  def destroy
+    if !session[:user_id] = nil
+      session[:user_id] = nil
+      flash[:notice] = "User logged out"
+      redirect_to users_path
+    else
+      flash[:notice] = "Not signed in"
       render 'new'
     end
   end
